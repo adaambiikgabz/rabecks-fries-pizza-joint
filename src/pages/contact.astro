@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { staticSettings, waLink } from '../lib/content.js';
+---
+
+<Layout title="Contact" active="Contact">
+  <!-- HERO -->
+  <section style="padding:clamp(24px,4vw,32px) clamp(20px,5vw,64px) clamp(40px,6vw,56px);">
+    <h1 class="font-display" style="font-size:clamp(44px,8vw,96px);text-transform:uppercase;line-height:0.95;color:var(--text);">Find Us</h1>
+    <p style="color:var(--text-muted);font-size:17px;margin-top:14px;max-width:480px;">{staticSettings.addressArea}. Open every night, till 11:30pm. Fastest way to reach us is WhatsApp.</p>
+  </section>
+
+  <!-- INFO + MAP -->
+  <section style="padding:0 clamp(20px,5vw,64px) clamp(56px,8vw,90px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;">
+
+    <div style="display:flex;flex-direction:column;gap:28px;">
+      <div>
+        <span style="font-family:monospace;font-size:12px;color:var(--orange);letter-spacing:1px;">HOURS</span>
+        <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;max-width:320px;border-bottom:1px solid var(--border);padding-bottom:6px;">
+            <span style="color:var(--text);font-weight:600;">{staticSettings.hoursLabel}</span>
+            <span style="color:var(--lime);font-weight:700;">{staticSettings.hoursValue}</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span style="font-family:monospace;font-size:12px;color:var(--orange);letter-spacing:1px;">LOCATION</span>
+        <p style="color:var(--text);font-size:17px;margin-top:10px;">{staticSettings.addressArea}, Ghana<br /><span style="color:var(--text-muted);font-size:14px;">{staticSettings.addressDetail}</span></p>
+      </div>
+
+      <div>
+        <span style="font-family:monospace;font-size:12px;color:var(--orange);letter-spacing:1px;">TALK TO US</span>
+        <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px;">
+          <a href={waLink("Hi Rabeck's, I'd like to order")} style="color:var(--text);font-size:17px;text-decoration:none;font-weight:700;">{staticSettings.phoneDisplay} (WhatsApp)</a>
+        </div>
+      </div>
+
+      <a href={waLink("Hi Rabeck's, I'd like to order")} style="background:var(--whatsapp);color:var(--whatsapp-text);text-decoration:none;font-weight:800;font-size:18px;padding:18px 32px;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:fit-content;">
+        Order on WhatsApp <span style="font-size:20px;">↗</span>
+      </a>
+    </div>
+
+    <div style="aspect-ratio:4/3;border-radius:16px;background:repeating-linear-gradient(45deg,var(--card) 0 18px,#1c1611 18px 36px);display:flex;align-items:center;justify-content:center;position:relative;">
+      <span style="font-family:monospace;color:var(--text-muted);font-size:12px;text-align:center;">MAP EMBED<br />drop pin for {staticSettings.addressArea} location</span>
+      <span style="position:absolute;top:16px;left:16px;width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px rgba(214,64,44,0.25);"></span>
+    </div>
+
+  </section>
+</Layout>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #181310;
+  --bg-alt: #100D0A;
+  --card: #241C16;
+  --border: #2E241B;
+  --text: #F3E9D9;
+  --text-muted: #8A7E6D;
+  --text-dim: #C9BEAE;
+  --orange: #F0762A;
+  --lime: #E7FF5C;
+  --red: #D6402C;
+  --whatsapp: #25D366;
+  --whatsapp-text: #0F1A0F;
+  --paper: #F3E9D9;
+  --paper-text: #181310;
+}
+
+html { background: var(--bg); }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.font-display { font-family: 'Anton', sans-serif; }
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 18px 2px rgba(231,255,92,0.55), 0 0 2px rgba(231,255,92,0.9) inset; }
+  50% { opacity: 0.78; box-shadow: 0 0 8px 0 rgba(231,255,92,0.25), 0 0 2px rgba(231,255,92,0.5) inset; }
+}
+
+@keyframes floatBtn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.menu-card {
+  background: var(--paper);
+  color: var(--paper-text);
+  border-radius: 2px;
+  padding: 22px;
+  position: relative;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  clip-path: polygon(0% 2%, 4% 0%, 96% 0%, 100% 2%, 100% 98%, 96% 100%, 4% 100%, 0% 98%);
+  overflow: hidden;
+}
+
+.menu-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 2px;
+  margin: -22px -22px 14px;
+  width: calc(100% + 44px);
+}
+
+.wa-fixed {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--whatsapp);
+  color: var(--whatsapp-text);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 16px 22px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 50;
+  animation: floatBtn 3s ease-in-out infinite;
+}
+
+nav a.nav-link[aria-current="page"] {
+  color: var(--lime);
+  font-weight: 700;
+}

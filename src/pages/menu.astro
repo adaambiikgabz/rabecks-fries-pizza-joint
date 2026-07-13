@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { staticMenu, waLink } from '../lib/content.js';
+
+const categoryColors = {
+  Fries: 'var(--orange)',
+  Pizza: 'var(--red)',
+  Sides: 'var(--lime)',
+  Drinks: 'var(--orange)',
+};
+---
+
+<Layout title="Menu" active="Menu">
+  <!-- HERO -->
+  <section style="padding:clamp(24px,4vw,32px) clamp(20px,5vw,64px) clamp(40px,6vw,56px);">
+    <h1 class="font-display" style="font-size:clamp(44px,8vw,96px);text-transform:uppercase;line-height:0.95;color:var(--text);">The Menu</h1>
+    <div style="display:inline-flex;align-items:center;gap:10px;background:#3A2E22;border:1px solid var(--lime);border-radius:10px;padding:12px 18px;margin-top:20px;">
+      <span style="font-family:monospace;font-size:13px;color:var(--lime);letter-spacing:0.5px;">SAMPLE MENU — placeholder items &amp; prices. Rabeck's team: swap these for the real lineup.</span>
+    </div>
+  </section>
+
+  {staticMenu.map((section, i) => (
+    <section style={`padding:clamp(24px,4vw,40px) clamp(20px,5vw,64px) ${i === staticMenu.length - 1 ? 'clamp(56px,8vw,90px)' : ''};${i % 2 === 1 ? 'background:var(--bg-alt);' : ''}`}>
+      <h2 class="font-display" style={`font-size:clamp(28px,4vw,40px);text-transform:uppercase;color:${categoryColors[section.category]};margin-bottom:24px;`}>{section.category}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+        {section.items.map(item => (
+          <div class="menu-card">
+            {item.image && <img src={item.image} alt={item.name} />}
+            <div style="display:flex;justify-content:space-between;gap:10px;">
+              <span style="font-weight:800;font-size:17px;">{item.name}</span>
+              <span class="font-display" style="color:var(--red);">{item.price}</span>
+            </div>
+            <p style="font-size:13px;color:#5A5044;margin-top:8px;">{item.description}</p>
+            <a href={waLink(`Hi Rabeck's, I'd like to order ${item.name}`)} style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--paper-text);text-decoration:underline;">Order this →</a>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
+</Layout>

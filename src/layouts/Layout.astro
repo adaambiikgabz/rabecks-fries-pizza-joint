@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import { staticSettings, waLink } from '../lib/content.js';
+
+const { title, description = "Pantang West's late-night fry and pizza spot. Order on WhatsApp.", active } = Astro.props;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/menu', label: 'Menu' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} · Rabeck's Fries &amp; Pizza Joint</title>
+  <meta name="description" content={description} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:clamp(16px,3vw,28px) clamp(20px,5vw,64px);position:relative;z-index:20;">
+    <a href="/" style="text-decoration:none;display:flex;flex-direction:column;line-height:1;">
+      <span class="font-display" style="font-size:clamp(24px,3vw,30px);color:var(--text);letter-spacing:0.5px;">RABECK'S</span>
+      <span style="font-size:10px;letter-spacing:2.5px;color:var(--orange);font-weight:700;margin-top:4px;">FRIES &amp; PIZZA JOINT</span>
+    </a>
+    <nav style="display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,2vw,28px);">
+      {nav.map(item => (
+        <a
+          class="nav-link"
+          href={item.href}
+          aria-current={active === item.label ? 'page' : undefined}
+          style={`text-decoration:none;font-weight:${active === item.label ? 700 : 600};font-size:15px;color:${active === item.label ? 'var(--lime)' : 'var(--text)'};`}
+        >{item.label}</a>
+      ))}
+      <a href={waLink("Hi Rabeck's, I'd like to order")} style="background:var(--whatsapp);color:var(--whatsapp-text);text-decoration:none;font-weight:800;font-size:14px;padding:10px 18px;border-radius:100px;white-space:nowrap;">Order on WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer style="background:var(--bg-alt);padding:clamp(40px,5vw,56px) clamp(20px,5vw,64px) 100px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px;border-top:1px solid var(--border);">
+    <div style="max-width:280px;">
+      <span class="font-display" style="font-size:24px;color:var(--text);">RABECK'S</span>
+      <p style="color:var(--text-muted);font-size:14px;margin-top:10px;line-height:1.5;">Fries &amp; pizza joint. {staticSettings.addressArea}. Open till 11:30pm, every night.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <span style="color:var(--text-muted);font-size:13px;letter-spacing:1px;margin-bottom:6px;">SITE</span>
+      {nav.map(item => (
+        <a href={item.href} style="color:var(--text);text-decoration:none;font-size:14px;">{item.label}</a>
+      ))}
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <span style="color:var(--text-muted);font-size:13px;letter-spacing:1px;margin-bottom:6px;">REACH US</span>
+      <a href={`https://wa.me/${staticSettings.whatsapp}`} style="color:var(--text);text-decoration:none;font-size:14px;">{staticSettings.phoneDisplay}</a>
+      <span style="color:var(--text);font-size:14px;">{staticSettings.addressArea}</span>
+    </div>
+  </footer>
+
+  <a href={waLink("Hi Rabeck's, I'd like to order")} class="wa-fixed">
+    Order on WhatsApp <span style="font-size:18px;">↗</span>
+  </a>
+</body>
+</html>
