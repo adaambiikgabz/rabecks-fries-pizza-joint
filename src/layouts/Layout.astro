@@ -2,13 +2,21 @@
 import '../styles/global.css';
 import { staticSettings, waLink, telLink } from '../lib/content.js';
 
-const { title, description = "Pantang West's late-night fry and pizza spot. Order on WhatsApp or by phone.", active } = Astro.props;
+const {
+  title,
+  description = "Pantang West's late-night fry and pizza spot. Order on WhatsApp or by phone.",
+  image = '/images/pizza-pepperoni-pull.jpg',
+  active,
+} = Astro.props;
 const nav = [
   { href: '/', label: 'Home' },
   { href: '/menu', label: 'Menu' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
+const pageTitle = `${title} · Rabeck's Fries & Pizza Joint`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -16,9 +24,22 @@ const nav = [
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title} · Rabeck's Fries &amp; Pizza Joint</title>
+  <title>{pageTitle}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:site_name" content="Rabeck's Fries & Pizza Joint" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
 </head>
 <body>
   <header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:clamp(16px,3vw,28px) clamp(20px,5vw,64px);position:relative;z-index:20;">

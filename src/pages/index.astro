@@ -5,7 +5,7 @@ import { staticSettings, waLink, telLink, homeTeaser } from '../lib/content.js';
 
 <Layout title="Home" active="Home">
   <!-- HERO -->
-  <section style="position:relative;padding:clamp(32px,6vw,40px) clamp(20px,5vw,64px) clamp(60px,8vw,90px);background-image:linear-gradient(180deg,rgba(24,19,16,0.88),rgba(24,19,16,0.72) 45%,rgba(24,19,16,0.96)),url('/images/pizza-pepperoni-whole.png');background-size:cover;background-position:center;">
+  <section style="position:relative;padding:clamp(32px,6vw,40px) clamp(20px,5vw,64px) clamp(60px,8vw,90px);background-image:linear-gradient(180deg,rgba(24,19,16,0.88),rgba(24,19,16,0.72) 45%,rgba(24,19,16,0.96)),url('/images/pizza-pepperoni-whole.jpg');background-size:cover;background-position:center;">
     <div style="display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:8px 18px 8px 10px;margin-bottom:28px;white-space:nowrap;">
       <span style="width:10px;height:10px;border-radius:50%;background:var(--lime);display:inline-block;animation:neonPulse 1.8s ease-in-out infinite;flex-shrink:0;"></span>
       <span class="font-display" style="font-size:clamp(11px,1.6vw,13px);letter-spacing:1.2px;color:var(--lime);">OPEN NOW · TILL 11:30PM</span>
@@ -66,7 +66,7 @@ import { staticSettings, waLink, telLink, homeTeaser } from '../lib/content.js';
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;">
       {homeTeaser.map(item => (
         <div style="background:var(--card);border-radius:14px;overflow:hidden;">
-          <img src={item.image} alt={item.name} style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" />
+          <img src={item.image} alt={item.name} loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" />
           <div style="padding:16px;">
             <div style="font-weight:700;color:var(--text);">{item.name}</div>
             <div style="color:var(--text-muted);font-size:13px;margin-top:4px;">{item.price}</div>
@@ -78,7 +78,7 @@ import { staticSettings, waLink, telLink, homeTeaser } from '../lib/content.js';
 
   <!-- ABOUT TEASER -->
   <section style="background:var(--bg-alt);padding:clamp(56px,8vw,96px) clamp(20px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center;">
-    <img src="/images/kitchen-action.png" alt="Rabeck's kitchen at work" style="width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:16px;display:block;" />
+    <img src="/images/kitchen-action.jpg" alt="Rabeck's kitchen at work" loading="lazy" style="width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:16px;display:block;" />
     <div>
       <h2 class="font-display" style="font-size:clamp(30px,4vw,44px);text-transform:uppercase;color:var(--text);line-height:1.05;">Pantang West's own</h2>
       <p style="color:var(--text-muted);font-size:17px;margin-top:18px;line-height:1.6;max-width:480px;">We started as a fry stand for the neighborhood. Now we're the spot people message at 10pm because nowhere else is still cooking. Same corner. Same recipe. Longer hours.</p>

@@ -12,7 +12,7 @@ const categoryColors = {
 
 <Layout title="Menu" active="Menu">
   <!-- HERO -->
-  <section style="padding:clamp(24px,4vw,32px) clamp(20px,5vw,64px) clamp(56px,8vw,80px);background-image:linear-gradient(180deg,rgba(24,19,16,0.88),rgba(24,19,16,0.75) 45%,rgba(24,19,16,0.97)),url('/images/wings-basket.png');background-size:cover;background-position:center;">
+  <section style="padding:clamp(24px,4vw,32px) clamp(20px,5vw,64px) clamp(56px,8vw,80px);background-image:linear-gradient(180deg,rgba(24,19,16,0.88),rgba(24,19,16,0.75) 45%,rgba(24,19,16,0.97)),url('/images/wings-basket.jpg');background-size:cover;background-position:center;">
     <h1 class="font-display" style="font-size:clamp(44px,8vw,96px);text-transform:uppercase;line-height:0.95;color:var(--text);">The Menu</h1>
   </section>
 
@@ -22,7 +22,7 @@ const categoryColors = {
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
         {section.items.map(item => (
           <div class="menu-card">
-            {item.image && <img src={item.image} alt={item.name} />}
+            {item.image && <img src={item.image} alt={item.name} loading="lazy" />}
             <div style="display:flex;justify-content:space-between;gap:10px;">
               <span style="font-weight:800;font-size:17px;">{item.name}</span>
               <span class="font-display" style="color:var(--red);">{item.price}</span>
