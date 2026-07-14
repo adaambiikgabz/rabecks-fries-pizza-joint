@@ -46,7 +46,6 @@ export const staticMenu = [
     category: 'Drinks',
     items: [
       { name: 'Coke / Fanta / Sprite', price: 'GHS 10', description: 'Chilled can. Pick your flavor.', image: '/images/drinks-sodas-only.png' },
-      { name: 'Sobolo', price: 'GHS 15', description: 'House-made hibiscus drink, served cold.', image: null },
       { name: 'Bottled Water', price: 'GHS 5', description: 'Cold, still.', image: '/images/water-voltic.jpg' },
     ],
   },
