@@ -38,7 +38,6 @@ export const staticMenu = [
     items: [
       { name: 'Chicken Wings (6pc)', price: 'GHS 40', description: 'Fried crisp, tossed in your choice of sauce.', image: '/images/wings-basket.png' },
       { name: 'Onion Rings', price: 'GHS 25', description: 'Battered, golden, crunchy through and through.', image: '/images/onion-rings.png' },
-      { name: 'Coleslaw', price: 'GHS 15', description: 'Cool and crunchy. Good against the heat.', image: null },
     ],
   },
   {
@@ -46,7 +45,7 @@ export const staticMenu = [
     items: [
       { name: 'Coke / Fanta / Sprite', price: 'GHS 10', description: 'Chilled can. Pick your flavor.', image: '/images/drinks-lineup.png' },
       { name: 'Sobolo', price: 'GHS 15', description: 'House-made hibiscus drink, served cold.', image: null },
-      { name: 'Bottled Water', price: 'GHS 5', description: 'Cold, still.', image: null },
+      { name: 'Bottled Water', price: 'GHS 5', description: 'Cold, still.', image: '/images/water-voltic.jpg' },
     ],
   },
 ];
