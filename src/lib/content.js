@@ -5,7 +5,7 @@ export const staticSettings = {
   whatsapp: '233548960695',
   phoneDisplay: '0548 960 695',
   addressArea: 'Pantang West, Accra',
-  addressDetail: '[exact street address — add here]',
+  addressDetail: '',
   hoursLabel: 'Monday – Sunday',
   hoursValue: '12:00pm – 11:30pm',
   rating: '4.9',

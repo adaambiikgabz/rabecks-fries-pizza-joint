@@ -26,7 +26,7 @@ import { staticSettings, waLink, telLink } from '../lib/content.js';
 
       <div>
         <span style="font-family:monospace;font-size:12px;color:var(--orange);letter-spacing:1px;">LOCATION</span>
-        <p style="color:var(--text);font-size:17px;margin-top:10px;">{staticSettings.addressArea}, Ghana<br /><span style="color:var(--text-muted);font-size:14px;">{staticSettings.addressDetail}</span></p>
+        <p style="color:var(--text);font-size:17px;margin-top:10px;">{staticSettings.addressArea}, Ghana{staticSettings.addressDetail && <><br /><span style="color:var(--text-muted);font-size:14px;">{staticSettings.addressDetail}</span></>}</p>
       </div>
 
       <div>
