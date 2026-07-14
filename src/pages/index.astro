@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { staticSettings, waLink, homeTeaser } from '../lib/content.js';
+import { staticSettings, waLink, telLink, homeTeaser } from '../lib/content.js';
 ---
 
 <Layout title="Home" active="Home">
@@ -18,22 +18,23 @@ import { staticSettings, waLink, homeTeaser } from '../lib/content.js';
     </h1>
 
     <p style="font-size:clamp(17px,2vw,22px);color:var(--text-dim);max-width:520px;margin-top:28px;line-height:1.5;">
-      Pantang West's late-night fry and pizza spot. Message us on WhatsApp and we start cooking the second you hit send.
+      Pantang West's late-night fry and pizza spot. Message us on WhatsApp or give us a call and we start cooking the second you order.
     </p>
 
     <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:36px;">
       <a href={waLink("Hi Rabeck's, I'd like to order")} style="background:var(--whatsapp);color:var(--whatsapp-text);text-decoration:none;font-weight:800;font-size:clamp(16px,1.6vw,19px);padding:18px 32px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;">
         Order on WhatsApp <span style="font-size:20px;">↗</span>
       </a>
-      <a href="/menu" style="border:2px solid var(--text);color:var(--text);text-decoration:none;font-weight:700;font-size:clamp(16px,1.6vw,19px);padding:16px 30px;border-radius:100px;">
-        See the Menu
+      <a href={telLink()} style="border:2px solid var(--text);color:var(--text);text-decoration:none;font-weight:700;font-size:clamp(16px,1.6vw,19px);padding:16px 30px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;">
+        Call to Order <span style="font-size:18px;">☎</span>
       </a>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,40px);margin-top:56px;padding-top:28px;border-top:1px solid var(--border);color:var(--text-muted);font-size:14px;font-weight:600;letter-spacing:0.5px;">
       <span>★ {staticSettings.rating} RATED</span>
       <span>{staticSettings.addressArea.toUpperCase()}</span>
-      <span>WHATSAPP ORDERING ONLY</span>
+      <span>WHATSAPP OR PHONE ORDERS</span>
+      <a href="/menu" style="color:var(--lime);text-decoration:none;">See the Menu →</a>
     </div>
   </section>
 
@@ -46,8 +47,8 @@ import { staticSettings, waLink, homeTeaser } from '../lib/content.js';
     </div>
     <div>
       <div class="font-display" style="font-size:34px;color:var(--lime);">02</div>
-      <h3 style="font-size:20px;margin-top:10px;color:var(--text);">WhatsApp only</h3>
-      <p style="color:var(--text-muted);font-size:15px;margin-top:8px;line-height:1.5;">No app, no account, no forms. Send a message, get your food. That's the whole system.</p>
+      <h3 style="font-size:20px;margin-top:10px;color:var(--text);">WhatsApp or call</h3>
+      <p style="color:var(--text-muted);font-size:15px;margin-top:8px;line-height:1.5;">No app, no account, no forms. Message us or call — either way, get your food. That's the whole system.</p>
     </div>
     <div>
       <div class="font-display" style="font-size:34px;color:var(--red);">03</div>
@@ -88,10 +89,15 @@ import { staticSettings, waLink, homeTeaser } from '../lib/content.js';
   <!-- CTA BANNER -->
   <section style="padding:clamp(64px,9vw,110px) clamp(20px,5vw,64px);text-align:center;background:linear-gradient(180deg,var(--bg),#1F1712);">
     <h2 class="font-display" style="font-size:clamp(38px,6vw,68px);text-transform:uppercase;color:var(--text);">Hungry right now?</h2>
-    <p style="color:var(--text-muted);font-size:17px;margin-top:12px;">Send us a message. We'll take it from there.</p>
-    <a href={waLink("Hi Rabeck's, I'd like to order")} style="margin-top:32px;background:var(--whatsapp);color:var(--whatsapp-text);text-decoration:none;font-weight:800;font-size:20px;padding:20px 40px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;">
-      Order on WhatsApp <span style="font-size:22px;">↗</span>
-    </a>
+    <p style="color:var(--text-muted);font-size:17px;margin-top:12px;">Send us a message or give us a call. We'll take it from there.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:32px;">
+      <a href={waLink("Hi Rabeck's, I'd like to order")} style="background:var(--whatsapp);color:var(--whatsapp-text);text-decoration:none;font-weight:800;font-size:20px;padding:20px 40px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;">
+        Order on WhatsApp <span style="font-size:22px;">↗</span>
+      </a>
+      <a href={telLink()} style="border:2px solid var(--text);color:var(--text);text-decoration:none;font-weight:800;font-size:20px;padding:20px 40px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;">
+        Call to Order <span style="font-size:20px;">☎</span>
+      </a>
+    </div>
     <div style="margin-top:16px;color:var(--text-muted);font-size:14px;">{staticSettings.phoneDisplay} · {staticSettings.addressArea}</div>
   </section>
 </Layout>

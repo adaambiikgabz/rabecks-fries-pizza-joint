@@ -14,6 +14,8 @@ export const staticSettings = {
 export const waLink = (text) =>
   `https://wa.me/${staticSettings.whatsapp}?text=${encodeURIComponent(text)}`;
 
+export const telLink = () => `tel:+${staticSettings.whatsapp}`;
+
 export const staticMenu = [
   {
     category: 'Fries',
@@ -54,5 +56,5 @@ export const homeTeaser = [
   { name: 'Loaded Cheese Fries', price: 'GHS 35 · sample price', image: '/images/fries-loaded-cheese.png' },
   { name: 'Pepperoni Feast', price: 'GHS 85 · sample price', image: '/images/pizza-pepperoni-pull.png' },
   { name: 'Chicken Wings (6pc)', price: 'GHS 40 · sample price', image: '/images/wings-basket.png' },
-  { name: 'Sobolo', price: 'GHS 15 · sample price', image: '/images/drinks-lineup.png' },
+  { name: 'Bottled Water', price: 'GHS 5 · sample price', image: '/images/water-voltic.jpg' },
 ];

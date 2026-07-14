@@ -1,8 +1,8 @@
 ---
 import '../styles/global.css';
-import { staticSettings, waLink } from '../lib/content.js';
+import { staticSettings, waLink, telLink } from '../lib/content.js';
 
-const { title, description = "Pantang West's late-night fry and pizza spot. Order on WhatsApp.", active } = Astro.props;
+const { title, description = "Pantang West's late-night fry and pizza spot. Order on WhatsApp or by phone.", active } = Astro.props;
 const nav = [
   { href: '/', label: 'Home' },
   { href: '/menu', label: 'Menu' },
@@ -56,7 +56,8 @@ const nav = [
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;">
       <span style="color:var(--text-muted);font-size:13px;letter-spacing:1px;margin-bottom:6px;">REACH US</span>
-      <a href={`https://wa.me/${staticSettings.whatsapp}`} style="color:var(--text);text-decoration:none;font-size:14px;">{staticSettings.phoneDisplay}</a>
+      <a href={telLink()} style="color:var(--text);text-decoration:none;font-size:14px;">{staticSettings.phoneDisplay} (call)</a>
+      <a href={waLink("Hi Rabeck's, I'd like to order")} style="color:var(--text);text-decoration:none;font-size:14px;">{staticSettings.phoneDisplay} (WhatsApp)</a>
       <span style="color:var(--text);font-size:14px;">{staticSettings.addressArea}</span>
     </div>
   </footer>

@@ -12,11 +12,8 @@ const categoryColors = {
 
 <Layout title="Menu" active="Menu">
   <!-- HERO -->
-  <section style="padding:clamp(24px,4vw,32px) clamp(20px,5vw,64px) clamp(40px,6vw,56px);">
+  <section style="padding:clamp(24px,4vw,32px) clamp(20px,5vw,64px) clamp(56px,8vw,80px);background-image:linear-gradient(180deg,rgba(24,19,16,0.88),rgba(24,19,16,0.75) 45%,rgba(24,19,16,0.97)),url('/images/wings-basket.png');background-size:cover;background-position:center;">
     <h1 class="font-display" style="font-size:clamp(44px,8vw,96px);text-transform:uppercase;line-height:0.95;color:var(--text);">The Menu</h1>
-    <div style="display:inline-flex;align-items:center;gap:10px;background:#3A2E22;border:1px solid var(--lime);border-radius:10px;padding:12px 18px;margin-top:20px;">
-      <span style="font-family:monospace;font-size:13px;color:var(--lime);letter-spacing:0.5px;">SAMPLE MENU — placeholder items &amp; prices. Rabeck's team: swap these for the real lineup.</span>
-    </div>
   </section>
 
   {staticMenu.map((section, i) => (
